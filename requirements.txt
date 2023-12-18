@@ -1,0 +1,7 @@
+numpy==1.26.0
+pymongo==4.3.3
+python-dotenv==1.0.0
+confluent-kafka==2.0.2
+Rtree==1.1.0
+shapely==2.0.2
+icecream==2.1.3

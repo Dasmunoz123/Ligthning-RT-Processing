@@ -1,0 +1,58 @@
+grid-tessellation:
+  tileside: 1
+  maxlat: 13
+  maxlon: -66
+  minlat: -3
+  minlon: -79
+  assetbuffer: 0.5
+
+phenomena-agent:
+  source: glm
+  type: discrete
+  sourcesi: 
+    - fJ
+  sourcefield:
+    - energia
+  maxdistancekm: 100
+  resolution: 0.1
+
+
+kafka-weather-consumer:
+  name: etl-glm-dev
+  topic: weather.nowcasting.glm-flashes
+  group.id: phenomena-agent-glm
+  bootstrap.server: kafka-kclarity-dev-kafka-bootstrap.kafka.svc.cluster.local:9093 
+  security.protocol: SSL
+  ssl.ca.location: secrets/ca.crt
+  ssl.certificate.location: secrets/phenomena-agent-user.crt
+  ssl.key.location: secrets/phenomena-agent-user.key
+  timeout.seconds: 1  
+  auto.offset.reset: earliest
+  enable.auto.offset.store: True
+  max.poll.interval.ms: 300000
+
+
+kafka-assets-consumer:
+  name: etl-linet-dev
+  bootstrap.server: kafka-kclarity-dev-kafka-bootstrap.kafka.svc.cluster.local:9093
+  topic: events.streaming.loopback4.asset
+  security.protocol: SSL
+  ssl.ca.location: secrets/ca.crt
+  ssl.certificate.location: secrets/phenomena-agent-user.crt
+  ssl.key.location: secrets/phenomena-agent-user.key
+  timeout.seconds: 10
+  group.id: phenomena-agent-linet
+  auto.offset.reset: latest
+  enable.auto.offset.store: True
+  max.poll.interval.ms: 300000
+
+
+kafka-producer:
+  name: phenomena-agent-glm-dev
+  bootstrap.server: kafka-kclarity-dev-kafka-bootstrap.kafka.svc.cluster.local:9093
+  topic: events.streaming.downstream
+  security.protocol: SSL
+  ssl.ca.location: secrets/ca.crt
+  ssl.certificate.location: secrets/phenomena-agent-user.crt
+  ssl.key.location: secrets/phenomena-agent-user.key
+  timeout.seconds: 10

@@ -1,0 +1,11 @@
+{
+    "name": "weather.nowcasting.linet-flashes",
+    "topic": "weather.nowcasting.linet-flashes",
+    "timeout.seconds": 10,
+    "authentication": {
+        "bootstrap.servers": "kafka:9092",
+        "group.id": "phenomena-agent-linet",
+        "security.protocol": "PLAINTEXT",
+        "auto.offset.reset": "latest"
+    }
+}

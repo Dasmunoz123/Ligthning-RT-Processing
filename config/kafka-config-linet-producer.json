@@ -1,0 +1,8 @@
+{
+    "name": "events.streaming.downstream-linet",
+    "topic": "events.streaming.downstream",
+    "authentication": {
+        "bootstrap.servers": "kafka:9092",
+        "security.protocol": "PLAINTEXT"
+    }
+}

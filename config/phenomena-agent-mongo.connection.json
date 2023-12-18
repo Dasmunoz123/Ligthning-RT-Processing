@@ -1,0 +1,5 @@
+{
+    "connection_string": "mongodb://phenomena-agent:JHdfdfLKJniu35fdg@3.130.205.37:32436/?authSource=loopback&readPreference=primary&ssl=true&tlsAllowInvalidCertificates=true&tlsAllowInvalidHostnames=true&directConnection=true",
+    "database": "loopback",
+    "collection": "Asset"
+}

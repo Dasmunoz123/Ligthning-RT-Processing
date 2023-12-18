@@ -1,0 +1,25 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: Current File",
+      "type": "python",
+      "request": "launch",
+      "program": "src/main.py",
+      "console": "integratedTerminal",
+      "args": [
+        "--kafka-consumer",
+        "./config/kafka-config-linet-consumer.json",
+        "--kafka-producer",
+        "./config/kafka-config-linet-producer.json",
+        "--mongo-connection",
+        "./config/phenomena-agent-mongo.connection.json",
+        "--phenomena-configuration",
+        "./config/phenomena-agent-config-linet.json"
+      ]
+    }
+  ]
+}

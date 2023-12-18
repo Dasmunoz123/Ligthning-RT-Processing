@@ -1,0 +1,39 @@
+grid-tessellation:
+  tileside: 1
+  maxlat: 13
+  maxlon: -66
+  minlat: -3
+  minlon: -79
+  assetbuffer: 0.5
+
+
+phenomena-agent:
+  source: linet
+  type: discrete
+  sourcesi:
+    - kA
+  sourcefield:
+    - corriente
+  maxdistancekm: 100
+  resolution: 0.1
+  deploy: developer
+
+
+kafka-weather-consumer:
+  name: weather.nowcasting.linet-flashes
+  topic: weather.nowcasting.linet-flashes
+  group.id: etl-linet
+  bootstrap.server: kafka-operator-kafka-bootstrap.kafka.svc.cluster.local
+  security.protocol: PLAINTEXT
+  timeout.seconds: 10
+  auto.offset.reset: latest
+  enable.auto.offset.store: True
+  max.poll.interval.ms: 300000
+
+
+kafka-producer:
+  name: events.streaming.downstream-linet
+  topic: events.streaming.downstream
+  bootstrap.server: kafka-operator-kafka-bootstrap.kafka.svc.cluster.local
+  security.protocol: PLAINTEXT
+  timeout.seconds: 10
